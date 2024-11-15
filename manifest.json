@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "datasf-to-duckdb",
+  "version": "1.0",
+  "description": "Opens the DuckdDB Web Shell with the DataSF Resource",
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["https://data.sfgov.org/*/about_data", "https://shell.duckdb.org/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://data.sfgov.org/*/about_data"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "web_accessible_resources": [
+  {
+    "resources": ["logo.png"],
+    "matches": ["https://data.sfgov.org/*"]
+  }
+]
+  
+}
